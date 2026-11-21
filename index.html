@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VoxDebat - La voix du peuple</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#0f0f1a;color:white;padding:20px}
+header{text-align:center;padding:30px 10px}
+h1{font-size:38px;color:#ffcc00}
+h1 span{color:#ff3b30}
+p{color:#ccc;margin-top:10px}
+.card{background:#1e1e2e;padding:20px;border-radius:15px;margin:15px 0}
+.card h2{margin-bottom:10px}
+button{padding:12px 20px;border:none;border-radius:10px;font-weight:bold;cursor:pointer;margin:5px}
+.pour{background:#00c853;color:white}
+.contre{background:#ff3b30;color:white}
+.vote{font-size:22px;margin-top:10px}
+input{width:100%;padding:12px;border-radius:10px;border:none;margin-top:10px}
+</style>
+</head>
+<body>
+<header>
+<h1>VOX<span>DEBAT</span></h1>
+<p>La voix du peuple, le débat en direct.</p>
+</header>
+<div class="card">
+<h2>🔥 Débat du jour</h2>
+<p><b>Les réseaux sociaux aident-ils la démocratie en Côte d'Ivoire ?</b></p>
+<p class="vote">✅ POUR : <span id="pour">12</span> | ❌ CONTRE : <span id="contre">8</span></p>
+<button class="pour" onclick="voter('pour')">Voter POUR</button>
+<button class="contre" onclick="voter('contre')">Voter CONTRE</button>
+</div>
+<div class="card">
+<h2>💬 Donne ton avis</h2>
+<input id="avis" placeholder="Écris ton avis ici...">
+<button style="background:#ffcc00;width:100%;margin-top:10px" onclick="envoyer()">Publier mon avis</button>
+<div id="liste"></div>
+</div>
+<script>
+let p=12,c=8;
+function voter(type){if(type=='pour'){p++;document.getElementById('pour').innerText=p}else{c++;document.getElementById('contre').innerText=c}alert('Merci ! Ton vote est enregistré.')}
+function envoyer(){let v=document.getElementById('avis').value;if(!v)return alert('Écris quelque chose !');let d=document.createElement('p');d.innerText='💬 '+v;document.getElementById('liste').appendChild(d);document.getElementById('avis').value='';}
+</script>
+</body>
+</html>
